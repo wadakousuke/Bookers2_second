@@ -10,8 +10,13 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm" style="background-color:#343a40;" >
+      <nav>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto" style = "color: white; ">
 
-    <% if user_signed_in? %>
+      <% if user_signed_in? %>
         <li class="nav-item">
          <%= link_to "Home" , user_path(current_user.id), class: "nav-link text-light fas fa-home"  %>
         </li>
@@ -45,19 +50,19 @@
     </div>
   </nav>
   </header>
-  <main >
-    <%= yield %>
-  </main>
+      <main >
+        <%= yield %>
+      </main>
 
-  <footer>
-    <div class="container mt-5">
-      <div class="row">
-        <div class="mx-auto">
-          <p>CopyRight Infratop.inc</p>
+      <footer>
+        <div class="container mt-5">
+          <div class="row">
+            <div class="mx-auto">
+              <p>CopyRight Infratop.inc</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </footer>
+      </footer>
 
   </body>
 </html>
