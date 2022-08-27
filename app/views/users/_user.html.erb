@@ -1,0 +1,36 @@
+<h2>User info</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col"><%= user.name %></th>
+    </tr>
+    <tr>
+      <th scope="col">Introduction</th>
+      <th scope="col"><%= user.introduction %></th>
+    </tr>
+  </thead>
+</table>
+<div class="row">
+  <%= link_to "",edit_user_path(user.id), class: "btn btn-outline-secondary btn-block " %>
+</div>
+
+<h2>New book</h2>
+<%= form_with model: @book do |f| %>
+  <div class="form-group">
+    <label>TItle</label>
+    <%= f.text_field :body, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <label>Introduction</label>
+    <%= f.text_field :introduction, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'create book', class: "btn btn-success pd-3"  %>
+  </div>
+<% end %>
+
+
+
+
+
