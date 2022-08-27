@@ -1,8 +1,28 @@
-<h1>画像投稿フォーム</h1>
-  <%= form_with model: @book do |f| %>
-    <h4>タイトル</h4>
-      <%= f.text_field :title %>
-    <h4>本文</h4>
-      <%= f.text_area :body %>
-    <%= f.submit '投稿' %>
-  <% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |books|%>
+            <tr>
+              <td></td>
+              <td><% books.title %></td>
+              <td><% books.body %></td>
+            </tr>
+           <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
