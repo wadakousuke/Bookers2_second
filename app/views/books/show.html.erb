@@ -20,6 +20,10 @@
             <td></td>
             <td><%= link_to @book.title, book_path(@book) %></td>
             <td><%= @book.body %></td>
+            <% if current_user.id == @book.user_id %>
+              <td><%= link_to "Edit", edit_book_path(@book),class: "btn btn-success" %></td>
+              <td><%= link_to "Destroy", book_path(@book),method: :delete,class: "btn btn-danger" %></td>
+            <% end %>
           </tr>
         </tbody>
       </table>
