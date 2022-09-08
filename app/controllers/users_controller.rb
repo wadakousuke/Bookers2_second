@@ -12,6 +12,12 @@ class UsersController < ApplicationController
   end
   def edit
     @user = User.find(params[:id])
+    if @user.id == current_user.id
+      render :edit
+    else
+       flash[:notice] = "他のユーザー投稿は編集できません"
+       redirect_to user_path(current_user.id)
+    end
   end
 
   def update

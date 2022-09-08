@@ -21,21 +21,32 @@ class BooksController < ApplicationController
   end
   def destroy
     book = Book.find(params[:id])
-    book.destroy
-    redirect_to books_path
+    if book.user_id == current_user.id
+      book.destroy
+      redirect_to books_path
+    else
+      flash[:notice] = "他のユーザー投稿は削除できません"
+       render :inde
+    end
   end
 
   def edit
     @book = Book.find(params[:id])
+    if @book.user_id == current_user.id
+      render :edit
+    else
+       flash[:notice] = "他のユーザー投稿は編集できません"
+       redirect_to books_path
+    end
   end
   def update
     book = Book.find(params[:id])
-    if book.update(book_params)
-       flash[:notice] = "successfully 新規追加に成功しました"
-      redirect_to book_path(book.id)
-    else
-       render :edit
-    end
+      if book.update(book_params)
+         flash[:notice] = "successfully 新規追加に成功しました"
+        redirect_to book_path(book.id)
+      else
+         render :edit
+      end
   end
 
   private
