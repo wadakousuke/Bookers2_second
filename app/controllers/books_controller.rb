@@ -26,7 +26,7 @@ class BooksController < ApplicationController
       redirect_to books_path
     else
       flash[:notice] = "他のユーザー投稿は削除できません"
-       render :inde
+       render :index
     end
   end
 
@@ -45,6 +45,7 @@ class BooksController < ApplicationController
          flash[:notice] = "successfully 新規追加に成功しました"
         redirect_to book_path(book.id)
       else
+        flash[:notice] = "他のユーザー投稿は編集できません"
          render :edit
       end
   end
