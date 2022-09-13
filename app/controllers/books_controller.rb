@@ -46,7 +46,7 @@ class BooksController < ApplicationController
         redirect_to book_path(book.id)
       else
         flash[:notice] = "他のユーザー投稿は編集できません"
-         render :edit
+         redirect_to edit_books_path(book.id)
       end
   end
 
