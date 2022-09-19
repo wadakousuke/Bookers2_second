@@ -45,8 +45,8 @@ class BooksController < ApplicationController
          flash[:notice] = "successfully 新規追加に成功しました"
         redirect_to book_path(book.id)
       else
-        flash[:notice] = "他のユーザー投稿は編集できません"
-         redirect_to edit_books_path(book.id)
+        flash[:notice] = "error 更新できませんでした"
+         redirect_to edit_book_path(book.id)
       end
   end
 
