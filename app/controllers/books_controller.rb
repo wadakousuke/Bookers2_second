@@ -46,7 +46,7 @@ class BooksController < ApplicationController
         redirect_to book_path(book.id)
       else
         flash[:notice] = "error 更新できませんでした"
-         redirect_to edit_book_path(book.id)
+         redirect_to book_path(book.id)
       end
   end
 
