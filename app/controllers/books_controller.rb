@@ -40,14 +40,14 @@ class BooksController < ApplicationController
     end
   end
   def update
-    book = Book.find(params[:id])
-      if book.update(book_params)
-         flash[:notice] = "successfully 新規追加に成功しました"
-        redirect_to book_path(book.id)
-      else
-        flash[:notice] = "error 更新できませんでした"
-         redirect_to book_path(book.id)
-      end
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      flash[:notice] = "successfully 更新に成功しました"
+      redirect_to "/books/#{@book.id}"
+    else
+      flash[:notice] = "error 更新に失敗しました"
+      render :edit
+    end
   end
 
   private
